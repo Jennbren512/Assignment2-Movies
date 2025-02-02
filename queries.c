@@ -1,7 +1,7 @@
 #include "movies.h"
 
 // Show movies released in a specified year
-void display_movies_by_year(Movie *head, int year) {
+void display_movies_by_year(movie *head, int year) {
     int found = 0;
     while (head) {
         if (head->year == year) {
@@ -16,8 +16,8 @@ void display_movies_by_year(Movie *head, int year) {
 }
 
 // Show highest-rated movie for each year
-void display_highest_rated_movies(Movie *head) {
-    Movie *highest[2022] = {NULL};
+void display_highest_rated_movies(movie *head) {
+    movie *highest[2022] = {NULL};
 
     while (head) {
         if (!highest[head->year] || head->rating > highest[head->year]->rating) {
@@ -34,7 +34,7 @@ void display_highest_rated_movies(Movie *head) {
 }
 
 // Show movies in a specific language
-void display_movies_by_language(Movie *head, const char *language) {
+void display_movies_by_language(movie *head, const char *language) {
     int found = 0;
     while (head) {
         for (int i = 0; i < head->language_count; i++) {

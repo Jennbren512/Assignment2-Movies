@@ -6,7 +6,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    Movie *head = read_movies_from_file(argv[1]);
+    movie *head = read_movies_from_file(argv[1]);
 
     while (1) {
         printf("\n1. Show movies released in the specified year\n");

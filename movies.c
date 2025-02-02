@@ -1,7 +1,7 @@
 #include "movies.h"
 
 // Read movie data from CSV file
-Movie* read_movies_from_file(const char *filename) {
+movie* read_movies_from_file(const char *filename) {
     FILE *file = fopen(filename, "r");
     if (!file) {
         printf("Error: Could not open file %s\n", filename);
@@ -11,11 +11,11 @@ Movie* read_movies_from_file(const char *filename) {
     char buffer[512];
     fgets(buffer, sizeof(buffer), file); // Skip header line
 
-    Movie *head = NULL, *tail = NULL;
+    movie *head = NULL, *tail = NULL;
     int count = 0;
 
     while (fgets(buffer, sizeof(buffer), file)) {
-        Movie *new_movie = malloc(sizeof(Movie));
+        movie *new_movie = malloc(sizeof(movie));
         if (!new_movie) {
             fprintf(stderr, "Memory allocation failed\n");
             exit(1);
@@ -65,9 +65,9 @@ Movie* read_movies_from_file(const char *filename) {
 }
 
 // Free linked list memory
-void free_movie_list(Movie *head) {
+void free_movie_list(movie *head) {
     while (head) {
-        Movie *temp = head;
+        movie *temp = head;
         head = head->next;
         free(temp->title);
         free(temp);

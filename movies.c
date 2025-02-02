@@ -15,8 +15,6 @@ Movie* read_movies_from_file(const char *filename) {
     int count = 0;
 
     while (fgets(buffer, sizeof(buffer), file)) {
-        printf("Processing line: %s", buffer);  // Debugging: Print each line
-
         Movie *new_movie = malloc(sizeof(Movie));
         if (!new_movie) {
             fprintf(stderr, "Memory allocation failed\n");
